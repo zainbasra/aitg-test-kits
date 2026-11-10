@@ -1,0 +1,12 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Demo Shop</title>
+<style>body{font-family:system-ui;max-width:520px;margin:40px auto;padding:0 16px}input,button{font-size:16px;padding:8px;margin:4px 0}#msg{color:#b00}.card{border:1px solid #ddd;border-radius:8px;padding:12px;margin:8px 0}</style></head>
+<body><h1>Demo Shop</h1>
+<div id="login"><h2>Sign in</h2><input id="user" placeholder="username"><br><input id="pass" type="password" placeholder="password"><br><button id="login-btn">Log in</button><div id="msg"></div></div>
+<div id="shop" hidden><h2>Products</h2>
+<div class="card">Backpack - $29.99 <button id="add" hidden>Add to cart</button></div>
+<div>Cart items: <span id="count">0</span></div><button id="checkout" disabled>Checkout</button><div id="done" hidden>Order placed</div></div>
+<script>
+document.getElementById('login-btn').onclick=()=>{const u=user.value,p=pass.value;if(u==='demo'&&p==='demo123'){login.hidden=true;shop.hidden=false;setTimeout(()=>{add.hidden=false},1500)}else{msg.textContent='Invalid credentials'}};
+add.onclick=()=>{count.textContent='1';checkout.disabled=false};
+checkout.onclick=()=>{done.hidden=false};
+</script></body></html>
