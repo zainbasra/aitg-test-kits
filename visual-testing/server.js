@@ -11,7 +11,7 @@ function reset() { state = { cart: [], orders: [], visual: 'a' }; }
 reset();
 const css = () => state.visual === 'b'
   ? 'body{font-family:Georgia,serif;margin:0;background:#fff7ed}nav{background:#9a3412;padding:18px}nav a{color:#fff;margin-right:24px}main{padding:32px;max-width:760px}button,.btn{background:#16a34a;color:#fff;border:0;padding:14px 22px;border-radius:999px;font-size:18px}li{margin:18px 0}'
-  : 'body{font-family:Arial,sans-serif;margin:0;background:#fff}nav{background:#0f172a;padding:12px}nav a{color:#fff;margin-right:16px}main{padding:24px;max-width:720px}button,.btn{background:#2563eb;color:#fff;border:0;padding:10px 16px;border-radius:4px;font-size:16px}li{margin:10px 0}';
+  : 'body{font-family:Arial,sans-serif;margin:0;background:#fff}nav{background:#0f172a;padding:12px}nav a{color:#fff;margin-right:16px}main{padding:24px;max-width:720px}button,.btn{background:#16a34a;color:#fff;border:0;padding:10px 16px;border-radius:4px;font-size:16px}li{margin:10px 0}[data-testid=price]{color:#e5e7eb}';
 const page = (title, body) => `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>${title} - AITG Demo Shop</title><style>${css()}</style></head><body><nav aria-label="Main"><a href="/">Shop</a><a href="/cart">Cart (${state.cart.length})</a><a href="/orders">Orders</a></nav><main><h1>${title}</h1>${body}</main></body></html>`;
 const find = id => PRODUCTS.find(p => p.id === Number(id));
 const send = (res, code, type, body, extra = {}) => { res.writeHead(code, { 'content-type': type, ...extra }); res.end(body); };
