@@ -1,0 +1,8 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,follow"><title>Newsletter frame | AITG Demo Shop</title><link rel="stylesheet" href="style.css?v=3.0.0"></head>
+<body style="padding:12px;background:#fff">
+<form id="nl" data-testid="frame-form"><label for="nl-email">Newsletter email (inside iframe)</label>
+<input id="nl-email" type="email" data-testid="frame-email"> <button type="submit" data-testid="frame-submit">Join</button>
+<p id="nl-msg" data-testid="frame-message"></p></form>
+<script>document.getElementById('nl').onsubmit=function(e){e.preventDefault();var v=document.getElementById('nl-email').value;document.getElementById('nl-msg').textContent=/@/.test(v)?'Thanks! (fake, nothing was sent)':'Enter an email';};</script></body></html>

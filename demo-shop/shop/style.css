@@ -1,0 +1,50 @@
+/* AITG Demo Shop v3 - fake shop for practising test automation */
+:root{--bg:#f6f7fb;--card:#fff;--ink:#14182b;--muted:#5b6382;--line:#dfe3ef;--brand:#3b5bdb;--brand-ink:#fff;--ok:#2b8a3e;--bad:#c92a2a;--warn:#e8590c}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
+a{color:var(--brand)}
+.top{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:12px 20px;background:var(--card);border-bottom:1px solid var(--line)}
+.logo{font-weight:700;text-decoration:none;color:var(--ink)}
+.logo small{font-weight:400;color:var(--muted);margin-left:6px}
+nav{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+nav a{text-decoration:none;color:var(--ink)}
+.badge{display:inline-block;min-width:22px;padding:0 6px;border-radius:11px;background:var(--brand);color:#fff;font-size:13px;text-align:center}
+.banner{background:#fff4e6;border-bottom:1px solid #ffd8a8;padding:6px 20px;font-size:14px;color:#7a3b00}
+main{max-width:1040px;margin:0 auto;padding:24px 20px 60px}
+h1{font-size:28px;margin:0 0 16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px}
+.card h2{font-size:18px;margin:8px 0 4px}
+.thumb{height:110px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:40px;background:#eef1fb}
+.price{font-weight:700;font-size:18px}
+.muted{color:var(--muted);font-size:14px}
+button,.btn{font:inherit;padding:9px 16px;border-radius:8px;border:1px solid var(--brand);background:var(--brand);color:var(--brand-ink);cursor:pointer;text-decoration:none;display:inline-block}
+button.secondary{background:#fff;color:var(--brand)}
+button.danger{background:var(--bad);border-color:var(--bad)}
+button:disabled{opacity:.45;cursor:not-allowed}
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px;align-items:center}
+input,select,textarea{font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:#fff}
+label{display:block;font-weight:600;margin:12px 0 4px}
+.err{color:var(--bad);font-size:14px;margin-top:4px;min-height:1em}
+.ok{color:var(--ok)}
+table{width:100%;border-collapse:collapse;background:#fff}
+th,td{padding:10px;border-bottom:1px solid var(--line);text-align:left}
+.toast{position:fixed;right:20px;bottom:20px;background:var(--ink);color:#fff;padding:10px 16px;border-radius:8px;display:none}
+.toast.show{display:block}
+.modal-back{position:fixed;inset:0;background:rgba(10,12,30,.5);display:none;align-items:center;justify-content:center;padding:16px}
+.modal-back.open{display:flex}
+.modal{background:#fff;border-radius:12px;padding:20px;max-width:420px;width:100%}
+.spinner{color:var(--muted);font-style:italic}
+footer{border-top:1px solid var(--line);padding:16px 20px;font-size:13px;color:var(--muted);text-align:center}
+.switches label{display:flex;gap:8px;align-items:center;font-weight:400;margin:6px 0}
+.lab-box{margin:12px 0}
+/* visual variant B: deliberate look changes for visual-testing tools */
+body.v-b .price{color:#e5e7eb}
+body.v-b .card{border-radius:2px}
+body.v-b button.add{background:#2b8a3e;border-color:#2b8a3e}
+/* layout shift helper */
+.shift-ad{height:0;overflow:hidden;transition:none}
+.shift-ad.on{height:90px;background:#fff3bf;border:1px dashed #f08c00;margin-bottom:12px;padding:10px}
+@media (max-width:600px){h1{font-size:22px}.top{padding:10px 14px}main{padding:16px 14px 48px}nav{gap:10px;font-size:15px}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+input,select{max-width:100%}.lab-box{overflow-wrap:anywhere}.lab-box table{display:block;overflow-x:auto}
