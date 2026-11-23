@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AITG Demo Shop: a free practice site for test automation</title>
+<meta name="description" content="A free fake shop for practising Playwright, Selenium, Cypress and AI testing tools: login, search, cart, checkout validation, test switches and a test lab of tricky cases.">
+<link rel="canonical" href="https://demo.aitestingguide.com/">
+<link rel="stylesheet" href="shop/style.css?v=3.0.0">
+<style>.hero{background:#fff;border-bottom:1px solid #dfe3ef}.hero main{padding-top:36px}.lead{font-size:19px;color:#3d4463}ul.tick li{margin:6px 0}code{background:#eef1fb;padding:1px 5px;border-radius:4px}</style>
+</head><body>
+<div class="hero"><main>
+<p class="muted">AI Testing Guide &middot; practice site &middot; v3.0.0 (23 Nov 2026)</p>
+<h1 style="font-size:34px">AITG Demo Shop: a free practice site for test automation</h1>
+<p class="lead">A small fake shop you can point any testing tool at: Playwright, Selenium, Cypress, codeless tools or AI test agents. Fake data only. Nothing is sold, and nothing you type leaves your browser.</p>
+<p><a class="btn" href="shop/index.html">Open the shop</a> &nbsp; <a href="shop/lab.html">Open the test lab</a></p>
+</main></div>
+<main>
+<h2>What you can test</h2>
+<ul class="tick">
+<li><strong>Login</strong> with a working account, a wrong password and a locked account.</li>
+<li><strong>Product list</strong> with search, category filter, sort and an in-stock filter (12 products, one sold out).</li>
+<li><strong>Cart</strong>: add, change quantity, remove, coupon codes, free-shipping rule, and a confirm dialog to clear it.</li>
+<li><strong>Checkout form</strong> with validation messages for every field, then an order number and an order history.</li>
+<li><strong>Test lab</strong>: an element that appears late, an in-page confirm dialog, an iframe, a button in shadow DOM, a new-tab link, ids that change on every load, a sortable table and a file picker.</li>
+</ul>
+<h2>Test switches</h2>
+<p>Turn on a change to see whether your tests, or a tool's self-healing, still pass. Set them on the <a href="shop/switches.html">switches page</a> or in the address:</p>
+<table><tbody>
+<tr><td><code>?delay=1</code></td><td>Slow loading (1.5 s).</td></tr>
+<tr><td><code>?flaky=1</code></td><td>Random load time from 0 to 3 s, so timing-dependent tests become flaky.</td></tr>
+<tr><td><code>?rename=1</code></td><td>"Add to cart" becomes "Add to basket", with a new id and test id.</td></tr>
+<tr><td><code>?look=1</code></td><td>Visual change: near-white price, square cards, green button.</td></tr>
+<tr><td><code>?shift=1</code></td><td>A promo banner appears late and shifts the layout.</td></tr>
+</tbody></table>
+<p class="muted">Switches are saved in your browser. Use "Reset shop" in the footer to clear the cart, orders, login and switches.</p>
+<h2>Practice data</h2>
+<p>Account: <code>demo@aitg.test</code> / <code>Demo123!</code>. Locked account: <code>locked@aitg.test</code> (same password). Coupons: <code>SAVE10</code> and <code>HALF</code>. Stable hooks: most elements carry a <code>data-testid</code>.</p>
+<h2>Rules</h2>
+<ul>
+<li>Use it for learning and for testing tools. Keep load light: no load tests, scanners or bots against this site.</li>
+<li>It is a static site with no server logic, so there is nothing to attack. Security practice belongs on a local app such as OWASP Juice Shop.</li>
+<li>The shop pages are not indexed by search engines; this page is.</li>
+</ul>
+<h2>Why it exists</h2>
+<p>We use it for the hands-on tests on <a href="https://aitestingguide.com/">AI Testing Guide</a>, so every tool runs against the same pages. Articles name the shop version they used. Read <a href="https://aitestingguide.com/how-we-test/">how we test</a>.</p>
+<h2>Changelog</h2>
+<ul><li><strong>3.0.0</strong> (23 Nov 2026): first public version: login, search and filters, cart with coupons, checkout validation, orders, test switches, test lab.</li></ul>
+</main>
+<footer>AITG Demo Shop &middot; by <a href="https://aitestingguide.com/">AI Testing Guide</a> &middot; fake data, nothing is sold</footer>
+</body></html>
