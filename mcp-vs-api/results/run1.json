@@ -1,0 +1,211 @@
+{
+ "api": {
+  "discovery_bytes": 2147,
+  "discovery_ops": [
+   "DELETE /notes/{note_id}",
+   "GET /notes",
+   "POST /notes"
+  ],
+  "add_status": 201,
+  "search": {
+   "status": 200,
+   "count": 2
+  },
+  "delete_ok": {
+   "status": 200,
+   "body": {
+    "deleted": 1
+   }
+  },
+  "delete_missing": {
+   "status": 404,
+   "body": {
+    "detail": "note 99 not found"
+   }
+  },
+  "empty_title": {
+   "status": 422,
+   "body": {
+    "detail": "title must not be empty"
+   }
+  },
+  "wrong_type": {
+   "status": 422,
+   "msg": "Input should be a valid integer, unable to parse string as an integer"
+  },
+  "missing_arg": {
+   "status": 422,
+   "msg": "Field required"
+  }
+ },
+ "mcp": {
+  "discovery_bytes": 1157,
+  "discovery_ops": [
+   "add_note",
+   "delete_note",
+   "search_notes"
+  ],
+  "add_is_error": false,
+  "search": {
+   "is_error": false,
+   "text": "{\n  \"id\": 1,\n  \"title\": \"Playwright locators\",\n  \"body\": \"getByRole survived the rename\"\n} {\n  \"id\": 3,\n  \"title\": \"Playwright traces\",\n  \"body\": \"open the trace viewer\"\n}",
+   "structured": {
+    "result": [
+     {
+      "id": 1,
+      "title": "Playwright locators",
+      "body": "getByRole survived the rename"
+     },
+     {
+      "id": 3,
+      "title": "Playwright traces",
+      "body": "open the trace viewer"
+     }
+    ]
+   }
+  },
+  "delete_ok": {
+   "is_error": false,
+   "text": "{\n  \"deleted\": 1\n}"
+  },
+  "delete_missing": {
+   "is_error": true,
+   "text": "Error executing tool delete_note: note 99 not found"
+  },
+  "empty_title": {
+   "is_error": true,
+   "text": "Error executing tool add_note: title must not be empty"
+  },
+  "wrong_type": {
+   "is_error": true,
+   "text": "Error executing tool delete_note: 1 validation error for delete_noteArguments\nnote_id\n  Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value='abc', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/int_parsing"
+  },
+  "missing_arg": {
+   "is_error": true,
+   "text": "Error executing tool add_note: 1 validation error for add_noteArguments\nbody\n  Field required [type=missing, input_value={'title': 'no body'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+  },
+  "unknown_tool": {
+   "is_error": true,
+   "text": "Unknown tool: no_such_tool"
+  }
+ },
+ "traffic": {
+  "api": {
+   "http_requests": 10,
+   "bytes_in": 228,
+   "bytes_out": 2835,
+   "statuses": [
+    200,
+    201,
+    404,
+    422
+   ]
+  },
+  "mcp": {
+   "http_requests": 12,
+   "bytes_in": 3511,
+   "bytes_out": 4820,
+   "statuses": [
+    200
+   ]
+  },
+  "mcp_requests": [
+   [
+    "POST",
+    "server/discover",
+    200
+   ],
+   [
+    "POST",
+    "tools/list",
+    200
+   ],
+   [
+    "POST",
+    "tools/call:add_note",
+    200
+   ],
+   [
+    "POST",
+    "tools/call:add_note",
+    200
+   ],
+   [
+    "POST",
+    "tools/call:add_note",
+    200
+   ],
+   [
+    "POST",
+    "tools/call:search_notes",
+    200
+   ],
+   [
+    "POST",
+    "tools/call:delete_note",
+    200
+   ],
+   [
+    "POST",
+    "tools/call:delete_note",
+    200
+   ],
+   [
+    "POST",
+    "tools/call:add_note",
+    200
+   ],
+   [
+    "POST",
+    "tools/call:delete_note",
+    200
+   ],
+   [
+    "POST",
+    "tools/call:add_note",
+    200
+   ],
+   [
+    "POST",
+    "tools/call:no_such_tool",
+    200
+   ]
+  ]
+ },
+ "mcp_delete_http_status": [
+  {
+   "rpc": "tools/call:delete_note",
+   "status": 200
+  },
+  {
+   "rpc": "tools/call:delete_note",
+   "status": 200
+  },
+  {
+   "rpc": "tools/call:delete_note",
+   "status": 200
+  }
+ ],
+ "timing": {
+  "api_warm": {
+   "median_ms": 1.68,
+   "p95_ms": 2.62
+  },
+  "mcp_warm": {
+   "median_ms": 2.73,
+   "p95_ms": 3.27
+  },
+  "api_cold_ms": 13.2,
+  "mcp_cold_ms": 20.3
+ },
+ "raw": {
+  "no_initialize": {
+   "status": 400,
+   "body": "{\"jsonrpc\":\"2.0\",\"id\":null,\"error\":{\"code\":-32600,\"message\":\"Bad Request: Missing session ID\"}}"
+  },
+  "no_accept_header": {
+   "status": 400,
+   "body": "{\"jsonrpc\":\"2.0\",\"id\":null,\"error\":{\"code\":-32600,\"message\":\"Bad Request: Missing session ID\"}}"
+  }
+ }
+}

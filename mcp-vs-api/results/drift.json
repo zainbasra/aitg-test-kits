@@ -1,0 +1,32 @@
+{
+ "api_old_call": {
+  "status": 200,
+  "body": {
+   "deleted": 1
+  }
+ },
+ "mcp_old_call": {
+  "is_error": true,
+  "text": "Error executing tool delete_note: 1 validation error for delete_noteArguments\nid\n  Field required [type=missing, input_value={'note_id': 1}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/"
+ },
+ "openapi_changed": true,
+ "tools_list_changed": true,
+ "openapi_paths_before_after": [
+  [
+   "/notes",
+   "/notes/{note_id}"
+  ],
+  [
+   "/notes",
+   "/notes/{id}"
+  ]
+ ],
+ "mcp_required_before_after": [
+  [
+   "note_id"
+  ],
+  [
+   "id"
+  ]
+ ]
+}
