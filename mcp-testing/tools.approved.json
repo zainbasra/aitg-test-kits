@@ -1,0 +1,120 @@
+{
+  "tools": [
+    {
+      "name": "add_note",
+      "description": "Add a note and return it with its id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "title": "Title",
+            "type": "string"
+          },
+          "body": {
+            "title": "Body",
+            "type": "string"
+          }
+        },
+        "required": [
+          "title",
+          "body"
+        ],
+        "title": "add_noteArguments"
+      }
+    },
+    {
+      "name": "search_notes",
+      "description": "Find notes whose title or body contains the query (case-insensitive).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "title": "Query",
+            "type": "string"
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "title": "search_notesArguments"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "title": "Result",
+            "type": "array"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "title": "search_notesOutput"
+      }
+    },
+    {
+      "name": "delete_note",
+      "description": "Delete a note by id.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "title": "Note Id",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "note_id"
+        ],
+        "title": "delete_noteArguments"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "title": "Result",
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "title": "delete_noteOutput"
+      }
+    },
+    {
+      "name": "read_file",
+      "description": "Read a text file from the server's sandbox folder only.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "title": "Name",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "title": "read_fileArguments"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "title": "Result",
+            "type": "string"
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "title": "read_fileOutput"
+      }
+    }
+  ]
+}
