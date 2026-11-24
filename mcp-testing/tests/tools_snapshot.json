@@ -1,0 +1,71 @@
+{
+  "add_note": {
+    "description": "Add a note and return it with its id.",
+    "input_schema": {
+      "properties": {
+        "body": {
+          "title": "Body",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "body"
+      ],
+      "title": "add_noteArguments",
+      "type": "object"
+    }
+  },
+  "delete_note": {
+    "description": "Delete a note by id.",
+    "input_schema": {
+      "properties": {
+        "note_id": {
+          "title": "Note Id",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "note_id"
+      ],
+      "title": "delete_noteArguments",
+      "type": "object"
+    }
+  },
+  "read_file": {
+    "description": "Read a text file from the server's sandbox folder only.",
+    "input_schema": {
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "title": "read_fileArguments",
+      "type": "object"
+    }
+  },
+  "search_notes": {
+    "description": "Find notes whose title or body contains the query (case-insensitive).",
+    "input_schema": {
+      "properties": {
+        "query": {
+          "title": "Query",
+          "type": "string"
+        }
+      },
+      "required": [
+        "query"
+      ],
+      "title": "search_notesArguments",
+      "type": "object"
+    }
+  }
+}
